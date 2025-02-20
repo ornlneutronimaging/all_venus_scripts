@@ -41,8 +41,10 @@ def load_data(folder):
     o_norm.load(list_tif)
     return o_norm.data['sample']['data'], o_norm
 
+
 def _worker(fl):
     return (imread(fl).astype(np.float32)).swapaxes(0,1)
+
 
 def load_data_mp(folder):
     list_tif = get_list_tif(folder)
@@ -140,24 +142,24 @@ def run(list_of_autoreduce_path, list_frame_number, list_proton_charge):
     
     plt.show()
 
-    o_norm = None
-
-
 def get_file_path(nexus):
     with h5py.File(nexus, 'r') as hdf5_data:
         file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ConfigTpxFilePath"]['value'][0][0].decode("utf8")
         file_path, _run = file_path.split("/")
         return file_path
     
+
 def get_frame_number(nexus):
     with h5py.File(nexus, 'r') as hdf5_data:
         frame_number = hdf5_data['entry']['DASlogs']['BL10:Det:PIXELMAN:ACQ:NUM']['value'][:][-1]
         return frame_number
     
+
 def get_proton_charge(nexus):
     with h5py.File(nexus, 'r') as hdf5_data:
         proton_charge = hdf5_data['entry']["proton_charge"][0] / 1e12
         return proton_charge
+
 
 def parse_range(list_runs):
     result = set()

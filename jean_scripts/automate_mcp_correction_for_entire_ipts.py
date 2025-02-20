@@ -22,7 +22,7 @@ logging.info(f"*** Starting a new script {file_name} ***")
 
 cmd = 'mcp_detector_correction.py --skipimg '
 
-ipts = 'IPTS-33699'
+ipts = 'IPTS-34808'
 input_folder = f"/SNS/VENUS/{ipts}/images/mcp/"
 output_folder = f"/SNS/VENUS/{ipts}/shared/autoreduce/mcp/"
 logging.info(f"{input_folder =}")
