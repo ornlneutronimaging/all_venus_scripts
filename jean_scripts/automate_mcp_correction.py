@@ -9,10 +9,12 @@ import glob
 
 cmd = 'mcp_detector_correction.py --skipimg '
 
-folder_title = "NMC_3_Angs_min_UA_Huntsville"
+folder_title = "temp_folder"
+#input_folder = f"/SNS/VENUS/IPTS-33699/images/mcp/{folder_title}"
+input_folder = f"/SNS/SNAP/IPTS-28316/shared/autoreduce/mcp/{folder_title}"
 
-input_folder = f"/SNS/VENUS/IPTS-33699/images/mcp/{folder_title}"
-output_folder = f"/SNS/VENUS/IPTS-33699/shared/autoreduce/mcp/{folder_title}"
+#output_folder = f"/SNS/VENUS/IPTS-33699/shared/autoreduce/mcp/{folder_title}"
+output_folder = f"/SNS/SNAP/IPTS-28316/shared/autoreduce/mcp/{folder_title}_fixed"
 
 list_folder = glob.glob(os.path.join(input_folder, "Run_*"))
 list_folder.sort()
@@ -26,7 +28,7 @@ for _input_folder in list_folder:
 #    else:
     print(f"Working with run {run_number}!")
     
-    _input_folder = os.path.join(_input_folder, 'tpx')
+    #_input_folder = os.path.join(_input_folder, 'tpx')
 
     full_output_folder = os.path.join(output_folder, run_number)
     if not os.path.exists(full_output_folder):

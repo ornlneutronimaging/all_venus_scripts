@@ -10,9 +10,14 @@ import pandas as pd
 # nexus = "/SNS/VENUS/IPTS-33699/nexus/VENUS_3673.nxs.h5ß"
 nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_6357.nxs.h5"
 nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_6690.nxs.h5"
+nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_7122.nxs.h5"
 assert os.path.exists(nexus)
 
 with h5py.File(nexus, 'r') as hdf5_data:
+
+    bm_event_index = hdf5_data['entry']['monitor1']['event_index'][:]
+    print(f"{bm_event_index = }")
+
     # run_number = hdf5_data["entry"]["entry_identifier"][:][0].decode("utf8")
     # print(f"run_number: {run_number}")
     # filename = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:FileName"]['value'][0][0].decode("utf8")
@@ -25,12 +30,8 @@ with h5py.File(nexus, 'r') as hdf5_data:
     # print(f"{detector_used =}")
     # end_time = hdf5_data['entry']['end_time'][0].decode("utf8")
     # print(f"{end_time =}")
-    start_time = hdf5_data['entry']['start_time'][0].decode("utf8")
-    print(f"{start_time =}")
-
-    triggered_delay = hdf5_data['entry']['DASlogs']['BL10:Det:TH:BM1:TrigDelay']['value'][0]
-    print(f"{triggered_delay =}")
-
+    # start_time = hdf5_data['entry']['start_time'][0].decode("utf8")
+    # print(f"{start_time =}")
     # file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ConfigTpxFilePath"]['value'][0][0].decode("utf8")
     # print(f"{file_path =}")
     # guide_pressure = hdf5_data['entry']['DASlogs']["BL10:Guide:Pres"]['value'][0]
