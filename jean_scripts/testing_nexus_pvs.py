@@ -7,11 +7,14 @@ import pandas as pd
 # > conda activate base
 # > conda activate /SNS/users/j35/miniconda3/envs/python310
 
+# +
 # nexus = "/SNS/VENUS/IPTS-33699/nexus/VENUS_3673.nxs.h5ß"
 nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_6357.nxs.h5"
-nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_6690.nxs.h5"
+nexus = "/SNS/VENUS/IPTS-35790/nexus/VENUS_7345.nxs.h5"
+
 assert os.path.exists(nexus)
 
+# +
 with h5py.File(nexus, 'r') as hdf5_data:
     # run_number = hdf5_data["entry"]["entry_identifier"][:][0].decode("utf8")
     # print(f"run_number: {run_number}")
@@ -25,11 +28,14 @@ with h5py.File(nexus, 'r') as hdf5_data:
     # print(f"{detector_used =}")
     # end_time = hdf5_data['entry']['end_time'][0].decode("utf8")
     # print(f"{end_time =}")
-    start_time = hdf5_data['entry']['start_time'][0].decode("utf8")
-    print(f"{start_time =}")
+#     start_time = hdf5_data['entry']['start_time'][0].decode("utf8")
+#     print(f"{start_time =}")
 
-    triggered_delay = hdf5_data['entry']['DASlogs']['BL10:Det:TH:BM1:TrigDelay']['value'][0]
-    print(f"{triggered_delay =}")
+#     triggered_delay = hdf5_data['entry']['DASlogs']['BL10:Det:TH:BM1:TrigDelay']['value'][0]
+#     print(f"{triggered_delay =}")
+
+    lambda_requested = hdf5_data["entry"]["DASlogs"]["LambdaRequest"]['value'][0]
+    print(f"{lambda_requested}")
 
     # file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ConfigTpxFilePath"]['value'][0][0].decode("utf8")
     # print(f"{file_path =}")
@@ -49,6 +55,7 @@ with h5py.File(nexus, 'r') as hdf5_data:
     # print(f"{collimator = }")
     # slits_width = hdf5_data['entry']['DASlogs']['BL10:Mot:s1:X:Gap.RBV']['value'][:][0]
     # print(f"{slits_width = }")
+# -
 
 #    tof_data = hdf5_data['entry']['bank100_events']['event_time_zero'][:]
     #tof_data = hdf5_data['entry']['bank_unmapped_events']['total_counts'][:]
