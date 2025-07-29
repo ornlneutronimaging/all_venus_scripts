@@ -11,6 +11,8 @@ import pandas as pd
 # nexus = "/SNS/VENUS/IPTS-33699/nexus/VENUS_3673.nxs.h5ß"
 nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_6357.nxs.h5"
 nexus = "/SNS/VENUS/IPTS-35790/nexus/VENUS_7345.nxs.h5"
+nexus = "/SNS/VENUS/IPTS-25776/nexus/VENUS_9978.nxs.h5"
+nexus = "/SNS/VENUS/IPTS-35945/nexus/VENUS_9014.nxs.h5"
 
 assert os.path.exists(nexus)
 
@@ -31,11 +33,33 @@ with h5py.File(nexus, 'r') as hdf5_data:
 #     start_time = hdf5_data['entry']['start_time'][0].decode("utf8")
 #     print(f"{start_time =}")
 
+    # duration
+    # duration = hdf5_data['entry']['duration'][0]
+    # print(f"{duration = }")
+    # duration_units = hdf5_data['entry']['duration'].attrs['units'].decode("utf8 ")
+    # print(f"{duration_units = }")
+
+    # # chopper1
+    # chopper1 = hdf5_data['entry']['instrument']['chopper1']['phase']['average_value'][0]
+    # print(f"{chopper1 = }")
+    # chopper1_units = hdf5_data['entry']['instrument']['chopper1']['phase']['average_value'].attrs['units'].decode("utf8 ")
+    # print(f"{chopper1_units = }")
+
+    # chopper4
+    chopper4 = hdf5_data['entry']['instrument']['chopper4']['phase']['average_value'][0]
+    print(f"{chopper4 = }")
+    chopper4_units = hdf5_data['entry']['instrument']['chopper4']['phase']['average_value'].attrs['units'].decode("utf8 ")
+    print(f"{chopper4_units = }")
+
 #     triggered_delay = hdf5_data['entry']['DASlogs']['BL10:Det:TH:BM1:TrigDelay']['value'][0]
 #     print(f"{triggered_delay =}")
 
-    lambda_requested = hdf5_data["entry"]["DASlogs"]["LambdaRequest"]['value'][0]
-    print(f"{lambda_requested}")
+    # total counts
+    # total_counts = hdf5_data['entry']['total_counts'][0]
+    # print(f"{total_counts = }")
+
+    # lambda_requested = hdf5_data["entry"]["DASlogs"]["LambdaRequest"]['value'][0]
+    # print(f"{lambda_requested}")
 
     # file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ConfigTpxFilePath"]['value'][0][0].decode("utf8")
     # print(f"{file_path =}")
@@ -46,7 +70,7 @@ with h5py.File(nexus, 'r') as hdf5_data:
     # proton_charge = hdf5_data['entry']["proton_charge"][0]
     # print(f"{proton_charge = }")
     # second_proton_charge = hdf5_data['entry']['DASlogs']['proton_charge']['value'][:]
-    # print(f"{second_proton_charge =}")
+    # print(f"{second_proton_charge =}")``
     # print(f"{len(second_proton_charge) =}")
     # print(f"")
     # acq_number = hdf5_data['entry']['DASlogs']['BL10:Det:PIXELMAN:ACQ:NUM']['value'][:][-1]
