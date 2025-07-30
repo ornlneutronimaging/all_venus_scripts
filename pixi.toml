@@ -1,5 +1,4 @@
 [workspace]
-authors = ["Chen Zhang <chenzhang8722@gmail.com>"]
 channels = ["conda-forge"]
 name = "all_venus_scripts"
 platforms = ["osx-arm64", "linux-64"]

@@ -66,3 +66,12 @@ For example, if you are developing on macOS but deploying on Linux, you can add 
 ```bash
 pixi project platform add linux-64
 ```
+
+## Add Tasks
+
+You can add tasks directly by editing the `pixi.toml` file, or you can use the command line to add tasks.
+For example, to add the task `list_nexus_pvs`, you can run:
+
+```bash
+pixi task add list_nexus_pvs "python jean_scripts/list_nexus_pvs.py"
+```
