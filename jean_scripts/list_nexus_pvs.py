@@ -1,16 +1,30 @@
+"""Script to list NeXus PV values for specified runs on the VENUS beamline at SNS.
+
+Usage:
+    python list_nexus_pvs.py <run_numbers> [--ipts IPTS-XXXX]
+    python list_nexus_pvs.py <run_numbers> --ipts IPTS-XXXX --create_output True
+
+>> python list_nexus_pvs.py 9250 --ipts IPTS-35945
+
+        collimator: 4x4 cm^2
+        slits_width: 49.9992
+        slits_height: 50.0001
+        proton_charge: 11405946458630.0
+        start_time: 2025-05-28T20:13:01.969076667-04:00
+        end_time: 2025-05-29T07:36:15.621267667-04:00
+        duration: 40993.65234375 second
+        triggered_delay: 0.0
+        lambda_requested: 7.0
+        chopper1_phase: 16005.60242438631 us
+        chopper4_phase: 31915.617873029052 us
+        sample_table_position: x: -130.008, y: 125.11800000000001, z: 524.997
+>>
+
+"""
 import os
 import h5py
 import argparse
-from IPython.display import display
-from IPython.core.display import HTML
-from matplotlib.pylab import str_
 import pandas as pd
-
-
-# to activate python310
-# > source /opt/anaconda/etc/profile.d/conda.sh
-# > conda activate base
-# > conda activate /SNS/users/j35/miniconda3/envs/python310
 
 IPTS = "IPTS-35945"
 NEXUS_PATH = f"/SNS/VENUS/{IPTS}/nexus/"
@@ -40,14 +54,14 @@ def get_collimator_value(nexus):
 
 
 def get_slits_width(nexus):
-  with h5py.File(nexus, 'r') as hdf5_data:
-    slits_width = hdf5_data['entry']['DASlogs']['BL10:Mot:s1:X:Gap.RBV']['value'][:][0]
+    with h5py.File(nexus, 'r') as hdf5_data:
+        slits_width = hdf5_data['entry']['DASlogs']['BL10:Mot:s1:X:Gap.RBV']['value'][:][0]
     return slits_width
 
 
 def get_slits_height(nexus):
-  with h5py.File(nexus, 'r') as hdf5_data:
-    slits_height = hdf5_data['entry']['DASlogs']['BL10:Mot:s1:Y:Gap.RBV']['value'][:][0]
+    with h5py.File(nexus, 'r') as hdf5_data:
+        slits_height = hdf5_data['entry']['DASlogs']['BL10:Mot:s1:Y:Gap.RBV']['value'][:][0]
     return slits_height
 
 
@@ -107,8 +121,10 @@ def get_sample_table_position(nexus):
 
 if __name__ == "__main__":
     
-    parser = argparse.ArgumentParser(description="display the PV values of the given run numbers",
-                                     epilog="Example: python list_nexus_pvs.py 1534,1535,1536, 1540-1545")
+    parser = argparse.ArgumentParser(
+        description="display the PV values of the given run numbers",
+        epilog="Example: python list_nexus_pvs.py 1534,1535,1536, 1540-1545"
+    )
     parser.add_argument('list_of_runs', type=str, nargs=1, help="List of runs (comma or dash separated)")
 
     # specify the IPTS
@@ -200,10 +216,3 @@ if __name__ == "__main__":
         df = pd.DataFrame(data_dict)
         df.to_csv(output_file_name, index=False)
         print(f"Data saved to {output_file_name}")
-
-
-# source /opt/anaconda/etc/profile.d/conda.sh
-# conda activate /SNS/users/j35/miniconda3/envs/python310
-# python list_nexus_pvs.py 1534,1535,1536, 1540-1545
-# python list_nexus_pvs.py 1534,1535,1536, 1540-1545 --ipts IPTS-35945
-
