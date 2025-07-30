@@ -57,3 +57,12 @@ pixi add pytorch::pytorch pytorch::pytorch-cuda
 ```
 
 > Note: `pixi` follows the channel order strictly, so if you run into issues where 3rd party packages are not installed from the expected channel, make sure to specify the channel explicitly like the example above.
+
+## Add Platforms
+
+You will need to manually add additional platforms to the project if your local development OS is different from the deployment OS.
+For example, if you are developing on macOS but deploying on Linux, you can add the Linux platform with:
+
+```bash
+pixi project platform add linux-64
+```

@@ -2,10 +2,11 @@
 authors = ["Chen Zhang <chenzhang8722@gmail.com>"]
 channels = ["conda-forge"]
 name = "all_venus_scripts"
-platforms = ["osx-arm64"]
+platforms = ["osx-arm64", "linux-64"]
 version = "0.1.0"
 
 [tasks]
+list_nexus_pvs = "python scripts/list_nexus_pvs.py"
 
 [dependencies]
 python = ">=3.12"
