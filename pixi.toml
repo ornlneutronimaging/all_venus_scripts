@@ -6,7 +6,7 @@ platforms = ["osx-arm64", "linux-64"]
 version = "0.1.0"
 
 [tasks]
-list_nexus_pvs = "python scripts/list_nexus_pvs.py"
+list_nexus_pvs = "python jean_scripts/list_nexus_pvs.py"
 
 [dependencies]
 python = ">=3.12"
