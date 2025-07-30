@@ -1,0 +1,7 @@
+#!/usr/bin/env /SNS/users/j35/miniconda3/envs/mylocal_python37/bin/python
+
+import os
+
+os.chdir("/SNS/VENUS/IPTS-31716/shared/notebooks/")
+#os.chdir("/SNS/VENUS/shared/notebooks/")
+os.system("/SNS/users/j35/miniconda3/envs/python310/bin/jupyter notebook")

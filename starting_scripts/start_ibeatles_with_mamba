@@ -1,0 +1,7 @@
+#!/bin/bash
+#source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/miniconda3/envs/mylocal_python37
+/SNS/users/j35/mambaforge/condabin/mamba activate ibeatles310
+cd /SNS/users/j35/git/iBeatles
+export PYTHONPATH=/SNS/users/j35/git/iBeatles:$PYTHONPATH
+python -m ibeatles
+

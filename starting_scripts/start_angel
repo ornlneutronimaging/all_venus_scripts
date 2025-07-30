@@ -1,0 +1,4 @@
+source /SNS/users/j35/miniconda3/bin/activate angel
+echo "Angel is launching ..."
+python -m angel
+echo "Angel up and running!"

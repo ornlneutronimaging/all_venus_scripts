@@ -1,0 +1,53 @@
+#!/usr/bin/env python
+
+import shutil
+import os, stat
+import glob
+import sys
+import pwd
+import time
+
+list_folders_to_ignore = ['.git']
+
+
+def recursive_copy( src, dst):
+
+    global list_folders_to_ignore
+
+    if os.path.basename(src) in list_folders_to_ignore:
+        return
+
+    if not os.path.exists(dst):
+        os.makedirs(dst)
+
+    for item in os.listdir(src):
+
+        full_item = os.path.join(src, item)
+
+        if os.path.isfile(full_item):
+            shutil.copy(full_item, dst)
+        else:
+            new_dst = os.path.join(dst, item)
+            item = os.path.join(src, item)     
+            recursive_copy(item, new_dst)
+
+
+#folder = 'IPTS_{}'.format(sys.argv[1])
+folder = 'python_notebooks'
+
+#raw_data = '/SNS/users/j35/git/IPTS/'
+raw_data = '/SNS/VENUS/shared/software/git/'
+#raw_data = '/SNS/software/share/jupyter/notebooks/'
+
+home = os.path.expanduser("~")
+target_folder = home + '/notebooks/' + folder
+
+#if os.path.exists(target_folder):
+#   shutil.rmtree(target_folder)
+# shutil.copytree('/SNS/users/j35/git/IPTS/' + folder, target_folder)
+
+recursive_copy(raw_data + folder, target_folder)					  
+os.chdir(target_folder)
+
+user_id = pwd.getpwuid(os.getuid()).pw_name
+

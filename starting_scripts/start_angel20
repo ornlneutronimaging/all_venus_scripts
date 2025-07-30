@@ -1,0 +1,5 @@
+source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/mambaforge/envs/angel20
+cd /SNS/users/j35/git/angel2.0_packages/angel
+echo "Angel2.0 is launching ..."
+python -m angel
+echo "Angel2.0 up and running!"

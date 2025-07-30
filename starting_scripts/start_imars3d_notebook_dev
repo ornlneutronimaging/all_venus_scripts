@@ -1,0 +1,9 @@
+#echo "Update imars3d notebooks ... "
+#/SNS/VENUS/shared/software/setup_imars3d_notebooks
+#echo "Done!"
+
+cd /SNS/VENUS/shared/software/git/iMars3d_notebooks_dev
+
+echo "Starting Jupyter with imars3d environment in dev mode (/SNS/VENUS/shared/software/git/iMars3d_notebooks_dev ... (be patient please while we set up your system!)"
+/SNS/users/j35/miniconda3/envs/my_imars3d-dev/bin/jupyter notebook
+

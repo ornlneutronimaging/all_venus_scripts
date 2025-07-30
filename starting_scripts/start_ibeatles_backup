@@ -1,0 +1,3 @@
+/SNS/users/j35/bin/micromamba activate ibeatles
+/SNS/users/j35/micromamba/envs/ibeatles/bin/python -m ibeatles
+

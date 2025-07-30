@@ -1,0 +1,26 @@
+#!/usr/bin/env /SNS/users/j35/miniconda3/envs/mylocal_python37/bin/python
+
+import sys
+import os
+import getpass
+import datetime
+
+LOGGER_FILE = "/SNS/users/j35/logger/notebook_logger.log"
+
+sys.stdout.write("Remobing fontconfig")
+os.system("rm -rf ~/.cache/fontconfig")
+
+root = os.path.expanduser('~/notebooks/python_notebooks/')
+os.chdir(root)
+
+# logger
+username = getpass.getuser()
+date = datetime.datetime.now().strftime("%mm_%dd_%Yu_%Hh_%Mmn")
+log_info = f"{date}: {username} launched the notebooks via jupyter-electron"
+with open(LOGGER_FILE, "a") as f:
+    f.write(log_info + "\n")
+
+print('Starting Jupyter with python 3.10 using start_jupyter_electron script... (be patient please while we set up your system!)')
+
+os.system("source /opt/anaconda/etc/profile.d/conda.sh; conda activate /SNS/users/j35/miniconda3/envs/python310; /SNS/users/j35/.local/share/jupyter-electron-app/jupyter-electron-app --no-sandbox")
+

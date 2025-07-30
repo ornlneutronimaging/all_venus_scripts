@@ -1,0 +1,15 @@
+echo "cd /SNS/VENUS/shared/software/git/PleiadesLANL/examples/Notebooks"
+cd /SNS/VENUS/shared/software/git/PleiadesLANL/examples/Notebooks
+echo "done!"
+
+echo "update PYTHONPATH and PATH!"
+export PYTHONPATH=/SNS/VENUS/shared/software/git/PleiadesLANL/pleiades:/SNS/VENUS/shared/software/git/PleiadesLANL/:$PYTHONPATH
+export PATH=$PATH:/SNS/users/j35/git/SAMMY/sammy/build/bin
+echo "done!"
+
+echo "activate sammy using micromamba"
+eval "$(micromamba shell hook --shell bash)"
+#micromamba activate sammy
+
+echo "launch jupyter notebook"
+/SNS/users/j35/micromamba/envs/sammy/bin/jupyter notebook 

@@ -1,0 +1,5 @@
+echo "activate ibeatles using micromamba"
+/home/j35/bin/micromamba activate ibeatles
+
+echo "launch ibeatles"
+/home/j35/micromamba/envs/ibeatles/bin/python -m ibeatles

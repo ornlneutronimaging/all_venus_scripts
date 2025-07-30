@@ -1,0 +1,7 @@
+micromamba activate /SNS/users/j35/micromamba/envs/create_shutter_values_py313
+
+detector_distance_m=$1
+detector_offset_micros=$2
+comma_separated_list_of_lambda_angstroms=$3
+
+python create_shutter_values.py $detector_distance_m $detector_offset_micros $comma_separated_list_of_lambda_angstroms

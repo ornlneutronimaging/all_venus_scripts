@@ -1,0 +1,27 @@
+#!/opt/anaconda/envs/neutron-imaging/bin/python
+
+import sys
+import os
+import getpass
+import datetime
+
+LOGGER_FILE = "/SNS/users/j35/logger/notebook_logger.log"
+
+sys.stdout.write("Update the notebooks ... ")
+os.system("/HFIR/CG1D/shared/setup_dev_ipts")
+sys.stdout.write("Done!\n")
+
+root = os.path.expanduser('~/notebooks/python_notebooks/')
+os.chdir(root)
+
+# logger
+username = getpass.getuser()
+date = datetime.datetime.now().strftime("%mm_%dd_%Yu_%Hh_%Mmn")
+log_info = f"{date}: {username} launched the notebooks via start_jupyter"
+with open(LOGGER_FILE, "a") as f:
+    f.write(log_info + "\n")
+
+print('Starting Jupyter with neutron_imaging conda environment using start_jupyter_notebooks_using_conda_env_neutron_imaging script... (be patient please while we set up your system!)')
+os.chdir(root)
+os.system("/opt/anaconda/envs/neutron-imaging/bin/jupyter notebook notebooks")
+

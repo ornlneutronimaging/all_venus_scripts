@@ -1,0 +1,31 @@
+#source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/miniconda3/envs/mylocal_python37
+#echo "source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/miniconda3/envs/ibeatles310..."
+#source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/miniconda3/envs/ibeatles310
+#echo "source /opt/anaconda/etc/profile.d/conda.sh"
+#source /opt/anaconda/etc/profile.d/conda.sh
+#echo "done!"
+
+#echo "conda activate /SNS/users/j35/miniconda3/envs/ibeatles310"
+#conda activate /SNS/users/j35/miniconda3/envs/ibeatles310
+
+#echo "micromamba activate ibeatles"
+#micromamba activate ibeatles
+#echo "done!"
+
+echo "cd /SNS/users/j35/git/iBeatles..."
+cd /SNS/users/j35/git/iBeatles
+echo "done!"
+
+#echo "export PYTHONPATH=/SNS/users/j35/git/iBeatles:$PYTHONPATH"
+#export PYTHONPATH=/SNS/users/j35/git/iBeatles:$PYTHONPATH
+#echo "done!"
+
+#echo "python -m ibeatles"
+#python -m ibeatles
+#echo "done!"
+
+echo "activate ibeatles using micromamba"
+/SNS/users/j35/bin/micromamba activate ibeatles
+
+echo "launch ibeatles"
+/SNS/users/j35/micromamba/envs/ibeatles/bin/python -m ibeatles

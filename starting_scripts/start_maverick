@@ -1,0 +1,6 @@
+#!/bin/bash
+source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/miniconda3/envs/mylocal_python37
+cd /SNS/users/j35/git/maverick
+export PYTHONPATH=/SNS/users/j35/git/maverick:$PYTHONPATH
+python -m maverick
+

@@ -1,0 +1,16 @@
+#!/usr/bin/env /SNS/users/j35/miniconda3/envs/mylocal_python37/bin/python
+
+import sys
+import os
+
+sys.stdout.write("Update laminogrpahy notebook ... ")
+os.system("/SNS/VENUS/shared/software/setup_laminography")
+sys.stdout.write("Done!\n")
+
+root = os.path.expanduser('~/Imaging/notebooks/')
+os.chdir(root)
+
+print('Starting Jupyter with tomoornl310 environment ... (be patient please while we set up your system!)')
+#os.system("/opt/anaconda/envs/imars3d-dev/bin/jupyter notebook")
+os.system("/SNS/users/j35/mambaforge/envs/tomoornl310/bin/jupyter notebook")
+

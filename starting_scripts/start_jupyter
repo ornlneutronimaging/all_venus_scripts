@@ -1,0 +1,7 @@
+#notify-send 'Please be patient' 'Notebooks are loading ...' -u critical -i /SNS/VENUS/shared/software/logos/imars3d_logo.png
+
+/SNS/users/j35/miniconda3/envs/python310/bin/python /SNS/VENUS/shared/software/splash_screen/splash_screen_with_gif_and_input_time_duration.py 30 &
+
+rm -rf ~/.cache/fontconfig
+/SNS/VENUS/shared/software/start_jupyter_310
+

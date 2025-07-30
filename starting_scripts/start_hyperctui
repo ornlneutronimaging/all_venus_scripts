@@ -1,0 +1,22 @@
+#!/bin/bash
+
+#source /SNS/users/j35/miniconda3/bin/activate /SNS/users/j35/miniconda3/envs/ibeatles310
+#echo "source /opt/anaconda/etc/profile.d/conda.sh"
+#source /opt/anaconda/etc/profile.d/conda.sh
+#echo "done!"
+
+eval "$(micromamba shell hook --shell bash)"
+micromamba activate hyperctui
+
+cd /SNS/VENUS/shared/software/git/HyperCTui
+
+export PYTHONPATH=$PWD:$PYTHONPATH
+
+
+#echo "export PYTHONPATH=/SNS/users/j35/git/iBeatles:$PYTHONPATH"
+#export PYTHONPATH=/SNS/users/j35/git/iBeatles:$PYTHONPATH
+#echo "done!"
+
+/SNS/users/j35/micromamba/envs/hyperctui/bin/python -m hyperctui
+echo "done!"
+

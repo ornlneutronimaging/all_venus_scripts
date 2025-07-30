@@ -1,0 +1,16 @@
+#!/usr/bin/env /SNS/users/j35/miniconda3/envs/mylocal_python37/bin/python
+
+import sys
+import os
+
+sys.stdout.write("Update ALL imars3d notebooks ... ")
+os.system("/SNS/VENUS/shared/software/setup_all_imars3d_notebooks")
+sys.stdout.write("Done!\n")
+
+root = os.path.expanduser('~/Imaging/notebooks/all_ct_reconstruction')
+os.chdir(root)
+
+print('Starting Jupyter with imars3d environment ... (be patient please while we set up your system!)')
+#os.system("/opt/anaconda/envs/imars3d-dev/bin/jupyter notebook")
+os.system("/SNS/users/j35/miniconda3/envs/my_imars3d-dev/bin/jupyter notebook")
+

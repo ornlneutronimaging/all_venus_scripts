@@ -1,0 +1,6 @@
+#!/usr/bin/env /SNS/users/j35/miniconda3/envs/mylocal_python37/bin/python
+
+import os
+
+os.chdir("/SNS/VENUS/shared/notebooks")
+os.system("/opt/anaconda/envs/neutron-imaging/bin/jupyter notebook")

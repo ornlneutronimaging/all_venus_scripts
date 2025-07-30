@@ -1,0 +1,3 @@
+rm -rf ~/.config/chromium/Singleton*
+rm -rf ~/.mozilla.bak
+mv --force ~/.mozilla ~/.mozilla.bak
