@@ -9,10 +9,8 @@ import pandas as pd
 
 # +
 # nexus = "/SNS/VENUS/IPTS-33699/nexus/VENUS_3673.nxs.h5ß"
-nexus = "/SNS/VENUS/IPTS-34969/nexus/VENUS_6357.nxs.h5"
-nexus = "/SNS/VENUS/IPTS-35790/nexus/VENUS_7345.nxs.h5"
-nexus = "/SNS/VENUS/IPTS-25776/nexus/VENUS_9978.nxs.h5"
-nexus = "/SNS/VENUS/IPTS-35945/nexus/VENUS_9014.nxs.h5"
+nexus = "/SNS/VENUS/IPTS-35945/nexus/VENUS_10117.nxs.h5"
+
 
 assert os.path.exists(nexus)
 
@@ -20,8 +18,10 @@ assert os.path.exists(nexus)
 with h5py.File(nexus, 'r') as hdf5_data:
     # run_number = hdf5_data["entry"]["entry_identifier"][:][0].decode("utf8")
     # print(f"run_number: {run_number}")
-    # filename = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:FileName"]['value'][0][0].decode("utf8")
-    # print(f"{filename =}")
+    
+    filename = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:FileName"]['value'][0][0].decode("utf8")
+    print(f"{filename =}")
+    
     # ipts_number = hdf5_data["entry"]["experiment_identifier"][:][0].decode("utf8")
     # print(f"{ipts_number}")
     # experiment_title = hdf5_data['entry']['experiment_title'][:][0].decode("utf8")
@@ -46,10 +46,10 @@ with h5py.File(nexus, 'r') as hdf5_data:
     # print(f"{chopper1_units = }")
 
     # chopper4
-    chopper4 = hdf5_data['entry']['instrument']['chopper4']['phase']['average_value'][0]
-    print(f"{chopper4 = }")
-    chopper4_units = hdf5_data['entry']['instrument']['chopper4']['phase']['average_value'].attrs['units'].decode("utf8 ")
-    print(f"{chopper4_units = }")
+    # chopper4 = hdf5_data['entry']['instrument']['chopper4']['phase']['average_value'][0]
+    # print(f"{chopper4 = }")
+    # chopper4_units = hdf5_data['entry']['instrument']['chopper4']['phase']['average_value'].attrs['units'].decode("utf8 ")
+    # print(f"{chopper4_units = }")
 
 #     triggered_delay = hdf5_data['entry']['DASlogs']['BL10:Det:TH:BM1:TrigDelay']['value'][0]
 #     print(f"{triggered_delay =}")
@@ -63,6 +63,14 @@ with h5py.File(nexus, 'r') as hdf5_data:
 
     # file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ConfigTpxFilePath"]['value'][0][0].decode("utf8")
     # print(f"{file_path =}")
+
+    # image_file_path
+    image_file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ImageFilePath"]['value'][0][0].decode("utf8")
+    print(f"{image_file_path =}")
+
+    list_image_file_path = hdf5_data["entry"]["DASlogs"]["BL10:Exp:IM:ImageFilePath"]['value'][:]
+    print(f"{list_image_file_path = }")
+
     # guide_pressure = hdf5_data['entry']['DASlogs']["BL10:Guide:Pres"]['value'][0]
     # print(f"{guide_pressure =}")
     # ft_pressure = hdf5_data['entry']['DASlogs']["BL10:EN:PLC:FTPressure"]['value'][0]
